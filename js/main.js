@@ -88,18 +88,44 @@ jQuery(document).ready(function($) {
 
 });
 
-function enviarWhatsApp() {
+// function enviarWhatsApp() {
+
+//             const nome = document.getElementById('nome').value;
+//             const email = document.getElementById('email').value;
+//             const msg = document.getElementById('mensagem').value;
+
+//             const telefone = "5541985101470";
+
+//             const texto = `Olá, meu nome é ${nome}.%0A` + 
+//             `Meu E-mail é: ${email}.%0A` + 
+//             `Mensagem: ${msg}`;
+
+//             const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${texto}`;
+    
+//             window.open(url, '_blank'); 
+//         }
+
+function enviarEmail() {
+
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const msg = document.getElementById('mensagem').value;
 
-            const telefone = "5541985101470";
+            const templateParams = {
+                from_name: nome,
+                from_email: email,
+                message: msg
+            };
 
-            const texto = `Olá, meu nome é ${nome}.%0A` + 
-            `Meu E-mail é: ${email}.%0A` + 
-            `Mensagem: ${msg}`;
-
-            const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${texto}`;
-    
-            window.open(url, '_blank'); 
+            emailjs.send('service_67v3z2j', 
+                        'template_8s0qe8r', 
+                         templateParams)
+            .then(() => {
+                alert('Email enviado com sucesso!');
+                document.getElementById('formContato').reset();
+            })
+            
+            .catch((error) => {
+                console.error('Error ao enviar email:' + error.text);
+            });
         }
