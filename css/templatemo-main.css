@@ -497,6 +497,7 @@ nav a:hover::before {
 .third-content .container-fluid {
 	padding-right: 7.5px;
 	padding-left: 7.5px;
+	padding-bottom: 30px;
 }
 
 .third-content .first-section .left-content {
@@ -531,7 +532,8 @@ nav a:hover::before {
 	display: inline-block;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
-	margin-top: 0px;
+	margin-top: 70px;
+	margin-left: 35px;
 }
 
 .third-content p {
